@@ -2,28 +2,41 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
 use App\Http\Resources\TodoResource;
 use App\Models\Todo;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+
 
 class TodoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum'); // ensure user is authenticated
-    }
+
 
     public function index(Request $request)
     {
-        $todos = $request->user()
-            ->todos()
-            ->latest()
-            ->get();
+        $query = $request->user()
+            ->todos();
+
+        if ($request->has('completed')) {
+            $query->where('completed', $request->boolean('completed'));
+        }
+
+        //default
+        $sort = $request->get('sort', 'updated_at');
+        $order = $request->get('order', 'desc');
+
+        // whitelist allowed sort
+        if (in_array($sort, ['created_at', 'updated_at'])) {
+            $query->orderBy($sort, $order === 'asc' ? 'asc' : 'desc');
+        }
+
+        $todos = $query->get();
+
         return TodoResource::collection($todos);
     }
+
 
 
     public function update(UpdateTodoRequest $request, Todo $todo)
@@ -49,12 +62,12 @@ class TodoController extends Controller
 
     public function store(StoreTodoRequest $request)
     {
-        $this->authorize('create', Todo::class);
+//        $this->authorize('create', Todo::class);
 
         $todo = $request->user()->todos()->create([
             'title' => $request->title,
             'description' => $request->description,
-            'completed' => false, // optional default
+            'completed' => false,
         ]);
 
         return new TodoResource($todo);

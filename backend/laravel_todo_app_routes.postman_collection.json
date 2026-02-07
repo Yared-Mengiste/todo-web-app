@@ -1,0 +1,486 @@
+{
+  "info": {
+    "_postman_id": "61ed3f54-a859-4bac-a811-f0b7c32bc6f7",
+    "name": "Laravel Todo Api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40689813"
+  },
+  "item": [
+    {
+      "name": "Edit Todo",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "7|ZXPRiaRoyePNowAy1qlsq3qdyfeXS6Vvhii3y5KL4da908c9",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"second update with policy todo\",\r\n  \"description\": \"Learn Laravel\",\r\n  \"completed\": true\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos/1",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "7|ZXPRiaRoyePNowAy1qlsq3qdyfeXS6Vvhii3y5KL4da908c9",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"second update with policy todo\",\r\n  \"description\": \"Learn Laravel\",\r\n  \"completed\": true\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos/2",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"yared@test.com\",\r\n  \"password\": \"password\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/login",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Todo",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo \",\r\n  \"description\": \"Learn Laravel\",\r\n  \"completed\": false\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Todo List",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo\",\r\n  \"description\": \"Learn Laravel\"\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Todo Sorted By Created At",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo\",\r\n  \"description\": \"Learn Laravel\"\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Todo Sorted By Updated At",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo\",\r\n  \"description\": \"Learn Laravel\"\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Todo Completed?",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo\",\r\n  \"description\": \"Learn Laravel\"\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/v1/todos",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Logout",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo\",\r\n  \"description\": \"Learn Laravel\"\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/logout",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "8|p6eRsneiuT7K3EhfO3WGGTM6Ktflj7IfuDQa9wxs6f2e373b",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": ""
+    }
+  ]
+}
