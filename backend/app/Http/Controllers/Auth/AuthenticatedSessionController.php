@@ -16,17 +16,17 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): array
+    public function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
 
 //        $request->session()->regenerate();
         $user = $request -> user();
         $token = $user->createToken('main')->plainTextToken;
-        return [
+        return $this->success([
             'user' => new UserResource($user),
             'token' => $token
-        ];
+        ], 'logged in Successfully');
     }
 
     /**
@@ -43,8 +43,6 @@ class AuthenticatedSessionController extends Controller
 //        return response()->noContent();
         $request->user()->currentAccessToken()->delete();
 
-        return response()->json([
-            'message' => 'Logged out successfully.'
-        ], 200);
+        return $this->success([], "Successfully Logged Out");
     }
 }

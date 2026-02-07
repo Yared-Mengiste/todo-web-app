@@ -34,7 +34,12 @@ class TodoController extends Controller
 
         $todos = $query->get();
 
-        return TodoResource::collection($todos);
+        return $this->success(
+            TodoResource::collection($todos),
+            'Todos fetched successfully',
+            200,
+            ['count' => $todos->count()]
+        );
     }
 
 
@@ -43,20 +48,24 @@ class TodoController extends Controller
     {
         $this->authorize('update', $todo); // action-specific
         $todo->update($request->only(['title', 'description', 'completed']));
-        return new TodoResource($todo);
+        return $this->success(new TodoResource($todo), "Successfully Updated");
     }
 
     public function destroy(Todo $todo)
     {
-        $this->authorize('delete', $todo); // action-specific
+        $this->authorize('delete', $todo);
         $todo->delete();
         return response()->noContent();
     }
 
     public function show(Todo $todo)
     {
+
         $this->authorize('view', $todo);
-        return new TodoResource($todo);
+        return $this->success(
+            new TodoResource($todo),
+            'Todo retrieved successfully'
+        );
 
     }
 
@@ -70,7 +79,11 @@ class TodoController extends Controller
             'completed' => false,
         ]);
 
-        return new TodoResource($todo);
+        return $this->success(
+            new TodoResource($todo),
+            'Todo created successfully',
+            201
+        );
 
     }
 
