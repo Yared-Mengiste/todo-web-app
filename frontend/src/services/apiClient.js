@@ -2,7 +2,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const axiosInstance = axios.create({
+const authClient = axios.create({
   baseURL: 'http://localhost:8000/api', 
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 });
 
 
-axiosInstance.interceptors.request.use(
+authClient.interceptors.request.use(
   (config) => {
     const token = Cookies.get('token'); 
     if (token) {
@@ -21,4 +21,4 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-export default axiosInstance;
+export default authClient;
