@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('api.logout');
 
     Route::get('/me', function (Illuminate\Http\Request $request) {
-        return $request->user();
+        return new UserResource($request->user());
     });
 });

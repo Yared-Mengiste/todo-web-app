@@ -455,6 +455,49 @@
       "response": []
     },
     {
+      "name": "Me using token",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "6|gv8oXHFytiLy4By2q9Tx1bvVsUiDtkSsy0pr3DXI0576ca61",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"First todo\",\r\n  \"description\": \"Learn Laravel\"\r\n}\r\n\r\n"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/logout",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Register",
       "request": {
         "method": "POST",
@@ -495,7 +538,7 @@
     "bearer": [
       {
         "key": "token",
-        "value": "9|eX5s44BC6iiPT60VLdSRC2VYAYjW13Uasf2UzJP2f47c1a30",
+        "value": "10|wtIF0jFbflly2TVdchf80fGnp1NRFT0gWTyDgE2Xc65dc55c",
         "type": "string"
       }
     ]
