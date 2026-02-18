@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import authClient from "../../api/authClient";
+import authClient from "../../services/apiClient";
 
 export const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
