@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import publicClient from "../../services/publicClient";
+import apiClient from "../../services/apiClient";
 import Cookies from "js-cookie";
 
 export const login = createAsyncThunk(
@@ -26,7 +27,7 @@ export const register = createAsyncThunk(
 );
 
 export const getUser = createAsyncThunk("auth/getUser", async () => {
-  const response = await privateClient.get("/me");
+  const response = await apiClient.get("/me");
   return response.data;
 });
 

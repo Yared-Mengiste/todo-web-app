@@ -4,7 +4,7 @@ import authClient from "../../services/apiClient";
 export const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
   async () => {
-    const response = await authClient.get("/v1/todos");
+    const response = await authClient.get("api/v1/todos");
     return response.data;
   }
 );
@@ -12,7 +12,7 @@ export const fetchTodos = createAsyncThunk(
 export const addTodo = createAsyncThunk(
   "todos/addTodo",
   async (todo) => {
-    const response = await authClient.post("/v1/todos", todo);
+    const response = await authClient.post("api/v1/todos", todo);
     return response.data;
   }
 );
@@ -20,7 +20,7 @@ export const addTodo = createAsyncThunk(
 export const updateTodo = createAsyncThunk(
   "todos/updateTodo",
   async ({ id, updatedTodo }) => {
-    const response = await authClient.put(`/v1/todos/${id}`, updatedTodo);
+    const response = await authClient.put(`api/v1/todos/${id}`, updatedTodo);
     return response.data;
   }
 );
@@ -28,7 +28,7 @@ export const updateTodo = createAsyncThunk(
 export const deleteTodo = createAsyncThunk(
   "todos/deleteTodo",
   async (id) => {
-    await authClient.delete(`/v1/todos/${id}`);
+    await authClient.delete(`api/v1/todos/${id}`);
     return id;
   }
 );

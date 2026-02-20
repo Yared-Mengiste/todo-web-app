@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../features/auth/authSlice";
 import Login from "../features/auth/Login";
+import AppRouter from "./AppRouter";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,8 +14,7 @@ function App() {
     }
   }, [token, dispatch]);
 
-  return (<><Login /> </>
-    // your routes here
+  return (<AppRouter />
   );
 }
 
